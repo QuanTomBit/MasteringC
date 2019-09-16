@@ -15,8 +15,6 @@ enumeration - `enum`
 `union`  
 `pointer`  
 
-> Ranges in the following tables are based on 64-bit machines.
-
 ### Integer Type
 `int` (signed int)   
 `unsigned int`   
@@ -35,4 +33,5 @@ enumeration - `enum`
 ### Character Type
 `char` (signed char)   
 `unsigned char`   
+
 ---
