@@ -12,8 +12,12 @@ int main() {
     printf("int %%d: %d\n", 21);
     printf("int %%i: %i\n", 15);
     printf("unsigned int %%u: %u\n", 16);
+
+    // short
     printf("short %%hi: %hi\n", (short) 14);
     printf("unsigned short %%hu: %hu\n", (unsigned short) 13);
+
+    // long
     printf("long %%ld: %ld\n", (long) 17);
     printf("long %%li: %li\n", (long) 18);
     printf("unsigned long %%lu: %lu\n", (unsigned long) 18);

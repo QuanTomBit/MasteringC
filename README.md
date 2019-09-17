@@ -3,36 +3,38 @@
 ## Data Types
 
 ### Primary Data Types:
-integer - `int`  
-floating point - `float`  
-character - `char`  
-`void`  
-enumeration - `enum`  
+integer - `int`\
+floating point - `float`\
+character - `char`\
+`void`\
+enumeration - `enum`\
 
 ### Derived Data Types:
-`array`  
-`structure`  
-`union`  
-`pointer`  
+`array`\
+`structure`\
+`union`\
+`pointer`\
 
 ### Integer Type
-`int` (signed int)   
-`unsigned int`   
-`short int` or `short`   
-`unsigned short int` or `unsigned short`   
-`long int` or `long`   
-`unsigned long int` or `unsigned long`   
-`long long`   
-`unsigned long long`   
+`int` (signed int) - 16 bits\
+`unsigned int`\
+`short int` or `short`\
+`unsigned short int` or `unsigned short`\
+`long int` or `long` - 32 bits\
+`unsigned long int` or `unsigned long`\
+`long long`\
+`unsigned long long`\
 
 ### Floating Point Type
-`float`   
-`double`   
-`long double`   
+`float`\
+`double`\
+`long double`\
 
 ### Character Type
-`char` (signed char)   
-`unsigned char`   
+`char` (signed char)\
+`unsigned char`\
+
+> Note that there are 8 bits in a byte.
 
 ---
 
@@ -50,6 +52,29 @@ to them will be replaced with the text following it.
 ## Character Input and Output
 
 Text input and output, regardless of origin or destination, is treated as a stream of characters.\  
+
 > A _text stream_ is a sequence of characters divided into lines with each line consisting of zero 
-> or more characters followed by a newline character.
-The simpliest functions for character I/O provided by the standard library are `getchar` and `putchar`.   
+> or more characters followed by a newline character. (Ritchie & Kernigham, 1988)
+
+The simpliest functions for character I/O provided by the standard library are `getchar()` and `putchar()`.\
+Each time it is called, `getchar()` read the next input character from a text stream and returns it. The function 
+`putchar()` will print the character passed to it. When assigning `getchar()` to a variable, the variable must be 
+of size int or of a data type that is greater than or equal to the same number of bytes as int. This is because 
+`getchar()` can return `EOF` which is an symbolic constant integer defined in stdio.h that means "End of File".
+
+---
+
+## Arrays
+
+
+
+---
+
+## Miscellaneous
+
+An isolated semicolon is called the _null statement_.
+
+
+## References
+
+Ritchie, M. D, & Kernigham, W. B. (1988). The C Programming Language (2nd Ed.). Englewood Cliffs, New Jersey: Prentice Hall.
