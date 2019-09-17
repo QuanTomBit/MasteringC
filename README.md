@@ -62,11 +62,22 @@ Each time it is called, `getchar()` read the next input character from a text st
 of size int or of a data type that is greater than or equal to the same number of bytes as int. This is because 
 `getchar()` can return `EOF` which is an symbolic constant integer defined in stdio.h that means "End of File".
 
----
+--- 
 
-## Arrays
+## Functions
 
+> Note: The rules for declaring and using functions mentioned here are in realation to ANSI C.\
 
+Functions offer encapsulation to C programs. A function definition has the following form:\
+`[return_type] [function_name]([parameter_declarations]) {`\
+&nbsp;&nbsp;&nbsp;`declarations`\
+&nbsp;&nbsp;&nbsp;`statements`\
+`}`\
+
+A **parameter** is a variable in the function definition, and an **argument** is a variable passed during a function call.\
+**Function prototypes** are definitions of the functions used within a file. They are placed at the beginnning, typically 
+between the lines declaring the included libraries and the main function or first functions defined. They are helpful for 
+allowing the compiler to check for errors.\
 
 ---
 
