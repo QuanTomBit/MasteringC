@@ -28,7 +28,7 @@ enumeration - `enum`
 ### Floating Point Type
 `float`\
 `double`\
-`long double`\
+`long double`
 
 ### Character Type
 `char` (signed char)\
@@ -47,7 +47,7 @@ to them will be replaced with the text following it.
 
 ## Character Input and Output
 
-Text input and output, regardless of origin or destination, is treated as a stream of characters.\  
+Text input and output, regardless of origin or destination, is treated as a stream of characters.  
 
 > A _text stream_ is a sequence of characters divided into lines with each line consisting of zero 
 > or more characters followed by a newline character. (Ritchie & Kernigham, 1988)
@@ -68,6 +68,9 @@ Functions offer encapsulation to C programs. A function definition has the follo
 &nbsp;&nbsp;&nbsp;`statements`\
 `}`
 
+Older versions of C require that functions that have no parameters be declared with `void` in the parameter list instead
+of leaving it empty. Keep this in mind if compatibility with older C programs is necessary.
+
 **Function prototypes** are definitions of the functions used within a file. They are placed at the beginnning, typically 
 between the lines declaring the included libraries and the main function or first functions defined. They are helpful for 
 allowing the compiler to check for errors.\
@@ -75,6 +78,30 @@ A **parameter** is a variable in the function definition, and an **argument** is
 All function arguements are _pass-by-value_ meaning that functions are given the values of the arguements in temporary varaibles. 
 This makes it so a called function cannot directly alter the variable. However, _pointers_ allow the actual variable to be altered 
 by passing the value of its address. This is how arrays must be passed in C.
+
+## Variables and Scope
+
+Variales that are local to a function exist only when the function is called and disappear when it returns. These local variables are 
+called _automatic_ vaiables.\
+The values of _external_ variables are permanent, and can be used within functions. To use an external variable within a function it
+must be declared using the `extern` keyword.
+
+`int max; // External variable`\
+\
+`void food() {`\
+&nbsp;&nbsp;&nbsp;`extern int max`\
+&nbsp;&nbsp;&nbsp;`max = 10;`
+&nbsp;&nbsp;&nbsp;`...`\
+`}`
+
+The keyword `extern` makes it known that the variable being declared refers to the external variable and not a local variable.
+However, the use of `extern` is unnecessary if the external variables are defined in the file before the function. To avoid
+the use of extern altogether, define external variables all at the top of the source file. It is common to put external 
+variables in header files, in which case `extern` is needed, and it is always needed for access across files.
+
+> Note: "definition" refers to the place where variables are created, and "declaration" refers to the place where the nature
+> of the variable is stated, but no memory is allocated.
+
 
 ## Miscellaneous
 
