@@ -102,6 +102,41 @@ variables in header files, in which case `extern` is needed, and it is always ne
 > Note: "definition" refers to the place where variables are created, and "declaration" refers to the place where the nature
 > of the variable is stated, but no memory is allocated.
 
+## Escape Sequences and Bit Patterns
+
+### Bit Patterns
+
+Since characters are just integers corresponding to ASCII values, they can be represented with octals and hexadecimals. 
+Specific byte-sized bit patterns can be used to define different ASCII values as constants. \ 
+E.g. \ 
+`#define SPACE '\040'` (octal) \ 
+`#define PLUS '\x2B'` (hex) \ 
+
+Octal digits take the form of '\ooo' where _ooo_ is one to three octal digits (0...7). Hexadecimal digits take the form of
+'\xhh' where _hh_ is one or more hexadecimal digits (0...9, a...f, A...F).
+
+### Escape Sequences
+
+Escape sequences are simply special types of character constants. \
+- \\a alert (bell) character
+- \\b backspace
+- \\f formfeed
+- \\n newline
+- \\r carriage return
+- \\t horizontal tab
+- \\v vertical tab
+- \\ backslash
+- \\? question mark
+- \\' single quote
+- \\" double quote
+- \\ooo octal number
+- \\xhh hexadecimal number
+- \\0 null character (value of zero)
+
+## Useful Libraries
+
+`<limits.h>`/`<float.h>` - Contain symbolic constants for the sizes of different types, as well as various machine properties. \
+
 
 ## Miscellaneous
 
