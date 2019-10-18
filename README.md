@@ -88,7 +88,7 @@ must be declared using the `extern` keyword.
 
 `int max; // External variable`\
 \
-`void food() {`\
+`void foo() {`\
 &nbsp;&nbsp;&nbsp;`extern int max`\
 &nbsp;&nbsp;&nbsp;`max = 10;`
 &nbsp;&nbsp;&nbsp;`...`\
@@ -101,6 +101,17 @@ variables in header files, in which case `extern` is needed, and it is always ne
 
 > Note: "definition" refers to the place where variables are created, and "declaration" refers to the place where the nature
 > of the variable is stated, but no memory is allocated.
+
+### Declarations
+
+All variables must be declared before use. Declarations specify a type followed by a list of one or more variables that all share
+the declared type. Declaring variables of the same type on different lines is useful for adding inline comments. Variables may also
+be initialized within their declarations. External and static variabls are initialized to 0 by default. Automatic variables with no
+explicit initialization will take on random/garbage values that can cause memory access errors. \
+The qualifier `const` can be added to the beginning of a declaration to signify that its value(s) cannot be changed. `const` can also
+be added to array arguments for functions to show the function will not alter the array. E.g. \
+
+`int strlen(constchar[]);`
 
 ## Escape Sequences and Bit Patterns
 
@@ -133,9 +144,52 @@ Escape sequences are simply special types of character constants. \
 - \\xhh hexadecimal number
 - \\0 null character (value of zero)
 
+> Note: String constants are actaully arrays of characters ending in '\0' to signify the end of the string. Therefore,
+> strings take up the amount of bytes equal to their length + 1. Strings have no limit on size, and the standard library 
+> function strlen() does not include the appended null character. Because of this, 'x' != "x".
+
+## Enumerations
+
+An enumeration is a list of constant integer values. Default value assignment starts at 0 and increases as more constants are defined.
+If desired, enums may be given constant values, acting as an alternative to `#define` statement. \
+
+`enum boolean { NO, YES };` \
+`enum months = { JAN = 1, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEPT, OCT, NOV, DEC }; // FEB = 2, MAR = 3, ...` \
+
+Names in enumerations must be distinct, but their values need not be.
+
+## Arithmetic Operators
+
+`+` Addition \
+`-` Subtraction \
+`*` Multiplication \
+`/` Division \
+`%` Modulus \
+
+The % operator produces the remainder of x in x % y. The % operator cannot be applied to `float` or `double`. \
+The direction of truncation when using / and the sign of the result when using % are machine-dependent for negative operands, 
+as is the action taken on overflow or underflow. \
+Normal mathematical operator precedence applies. \
+
+## Relational and Logical Operators
+
+`<` Less than \
+`>` Greater than \
+`<=` Less than or equal to \
+`>=` Greater than or equal to \
+`==` Equal to \
+`!=` Not equal to \
+`&&` Logical AND \
+`||` Logical OR \
+`!` Logical NOT \
+
+Precedence of operators is from highest to lowest as follows: \
+&nbsp;&nbsp;&nbsp;(<, <=, >, >=), (==, !=), &&, || \
+
 ## Useful Libraries
 
 `<limits.h>`/`<float.h>` - Contain symbolic constants for the sizes of different types, as well as various machine properties. \
+`<string.h>` - Contains many functions for working with strings such as strlen(). \
 
 
 ## Miscellaneous
