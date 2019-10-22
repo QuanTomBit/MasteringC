@@ -184,17 +184,64 @@ Normal mathematical operator precedence applies. \
 `!` Logical NOT \
 
 Precedence of operators is from highest to lowest as follows: \
-&nbsp;&nbsp;&nbsp;(<, <=, >, >=), (==, !=), &&, || \
+&nbsp;&nbsp;&nbsp;(<, <=, >, >=), (==, !=), &&, || 
+
+## Bitwise Operators
+
+C provides six operators for bit manipulation. These operators may only be applied to integral operands such as `char`, `short`, 
+`int`, and `long`. \
+`&` Bitwise AND \
+&nbsp;&nbsp;Often used to mask off some set of bits \
+`|` Bitwise inclusive OR \
+&nbsp;&nbsp;Used to turn bits on \
+`^` Bitwise exclusive OR (XOR) \
+&nbsp;&nbsp;Sets a 1 in each position where the operands have the same bit, and a 0 elsewhere \
+`<<` Left shift \
+&nbsp;&nbsp;Shifts the bits of the left operand left the number of times designated by the right operand \
+`>>` Right shift \
+&nbsp;&nbsp;Shifts the bits of the left operand right the number of times designated by the right operand \
+&nbsp;&nbsp;Declaring a variable as unsigned will ensure the vacated bits are filled with 0s when right-shifted. \
+`~` One's complemenet (unary) \
+&nbsp;&nbsp;Converts every 1-bit to a 0-bit and vice versa \
+\
+Right shifting an unsigned operand always fills vacated bits with 0. Right shifting a signed quantity will fill with sign bits 
+(arithmetic shift) on some machines, and with 0-bits (logical shift) on others.
+
+## Type Conversions
+
+Conversions take place across assignments. The value of the right side is converted to the type of the left which ends up being 
+the type of the left. \
+\
+When an operator has operands of different types, they are converted to  a common type based on a small set of rules. In general, 
+the only automatic conversions are those to "narrow" operands to make them "wider" without lose of information, e.g. int -> float.
+Expressions that don't make sense, such as subscripting with a float, are not allowed. Conversions that may result in a lose of
+information, such as int -> short, may generate a warning, but not an error. Since a char is just a small integer, arithmetic 
+operations may be used. \
+\ 
+C does not specify whether variables of type `char` are signed or unsigned. Whether or not a char can ever produce a negative value depends on the machine. On some machines, if a char's leftmost bit is a 1, it will be converted to a negative number (sign extension). 
+On other machines, a char is promoted to an int by adding zeroes to the left end and is therefore always positive. The definition of C 
+guarenteesat any character in the machine's standard printing character set will not be negative. Arbitrary bit patterns stored in 
+character variables may be positive or negative based on machine. For portability, specify `signed` or `unsigned`. \ 
+\ 
+Logically true variables/experessions are any value that is not 0. Logically false means it has a value of 0. \
+\
+In general, mathematical functions such as those found in <math.h> use double precision. Float does not automatically convert to 
+double, but is often used for memory efficiency. \
+\
+Comparisons between signed and unsigned values are machine dependent because they depend on the sizes of various integer types.
 
 ## Useful Libraries
 
 `<limits.h>`/`<float.h>` - Contain symbolic constants for the sizes of different types, as well as various machine properties. \
 `<string.h>` - Contains many functions for working with strings such as strlen(). \
+`<ctype.h>` - Provides tests and conversions that are independent of character sets. \
 
 
 ## Miscellaneous
 
-An isolated semicolon is called the _null statement_.
+An isolated semicolon is called the _null statement_. \
+The ternary operator `? :` is used as follws: (condition) ? result_if_true : result_if_false \
+
 
 ---
 
