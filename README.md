@@ -36,7 +36,7 @@ enumeration - `enum`
 
 > Note that there are 8 bits in a byte.
 
-## Symbolic Consttants 
+## Symbolic Constants 
 
 It is typically bad practice to have constants within random places of your code. Instead, 
 give them names as follows:\
@@ -230,6 +230,21 @@ double, but is often used for memory efficiency. \
 \
 Comparisons between signed and unsigned values are machine dependent because they depend on the sizes of various integer types.
 
+## Functions
+
+Functions are used to seperate chunks of code into reusable, readable blocks. Function definitions take the following form: \
+&nbsp;&nbsp;&nbsp;return-type function-name(argument declarations) { \
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;declarations and statements \
+&nbsp;&nbsp;&nbsp;} \
+
+Not all functions must take arguments, and if the return-type is omitted, then it is assumed to be `int`. \
+The keyword `return` is used to send back the resulting value of the expression following it. Note that this value may be ignored by
+the calling function which execution returns to. \
+A function **prototype** declares the return-type, name, and parameters of a function in order to ensure calls to the function, and
+the structure of the function itself, are of the correct form/type. Parenthesis indicate that a declaration is that of a function, and
+if the parenthesis are empty, then no arguments are passed to the function. However, it' sbest practice to fill the parenthesis with 
+`void` when it does not take arguments unless compatibility with older programs is an issue. \
+
 ## Useful Libraries
 
 `<limits.h>`/`<float.h>` - Contain symbolic constants for the sizes of different types, as well as various machine properties. \
@@ -241,6 +256,9 @@ Comparisons between signed and unsigned values are machine dependent because the
 
 An isolated semicolon is called the _null statement_. \
 The ternary operator `? :` is used as follws: (condition) ? result_if_true : result_if_false \
+The `break` statement causes the innermost loop or `switch` to be exited immediately. \
+The `continue` statement causes the next iteration of a loop to begin. \
+Using a label defined by the user, execution can jump to a different point in the program by using `goto`. \
 
 
 ---
